@@ -11,7 +11,7 @@ module.exports = {
                     res.json({status: false, message: "Not Found"})
                 }
             })
-            .catch(err => res.send("Error"))
+            .catch(err => res.json({error: "Error"}))
     },
 
     addNewTask(req, res) {
