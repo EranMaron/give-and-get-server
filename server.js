@@ -4,7 +4,6 @@ const   express = require('express'),
         port = process.env.PORT || 3200
  
 const handler = require('./controller/test') 
-User = require("./models/user")
         
 app.set("port", port);
 
@@ -21,20 +20,8 @@ app.use((req, res, next) => {
     });        
 
 app.get('/', (req, res) => res.send("Go"))
-app.post('/signin', (req, res) => {
-    User.findOne({phone_number: req.body.user, password: req.body.pass})
-            .then(data => {
-                if (data) {
-                    res.send({status: true, user: data})
-                } else {
-                    res.send({status: false, message: "User was not found. Please check the phone number again."})
-                }
-            })
-            .catch(err => res.send({status: '400', message: "Error"}))
-})
-// handler.checkIfUserExist
+app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
                
 app.listen(port)
 console.log(`Server Running On Port ${port}`)
-    
