@@ -20,7 +20,10 @@ app.use((req, res, next) => {
     });        
 
 app.get('/', (req, res) => res.send("Go"))
-app.post('/signin', handler.checkIfUserExist)
+app.post('/signin', (req, res) => {
+    res.send(process.env.DB_USER)
+})
+// handler.checkIfUserExist
 app.post('/addTask', handler.addNewTask)
                
 app.listen(port)
