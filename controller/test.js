@@ -6,12 +6,12 @@ module.exports = {
         User.findOne({phone_number: req.body.user, password: req.body.pass})
             .then(data => {
                 if (data) {
-                    res.json({status: true, user: data})
+                    res.send({status: true, user: data})
                 } else {
-                    res.json({status: false, message: "Not Found"})
+                    res.send({status: false, message: "Not Found"})
                 }
             })
-            .catch(err => res.json({status: '400', message: "Error"}))
+            .catch(err => res.send({status: '400', message: "Error"}))
     },
 
     addNewTask(req, res) {
