@@ -23,6 +23,7 @@ app.get('/', (req, res) => res.send("Go"))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
+app.all('*', (req, res) => res.send("All Routes"))
                
 app.listen(port)
 console.log(`Server Running On Port ${port}`)
