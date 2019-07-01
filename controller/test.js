@@ -18,8 +18,8 @@ module.exports = {
             .then(data => data.updateOne({$push: {gotten_tasks: req.body}}))
             .then(() => User.findOne({phone_number: req.body.userSendPhoneNumber}))
             .then(data => data.updateOne({$push: {given_tasks: req.body}}))
-            .then(() => res.json({status: true, message: "Task Was Added Successfully"}))
-            .catch(err => res.json({status: '400', message: "User was not found. Please check the phone number or the password."}))
+            .then(() => res.send({status: true, message: "Task Was Added Successfully"}))
+            .catch(err => res.send({status: '400', message: "User was not found. Please check the phone number or the password."}))
     },
     
     addNewuser(req, res) {
@@ -32,7 +32,7 @@ module.exports = {
             gotten_task: req.body.gotten_task,
             contact_list: req.body.contact_list
         })
-            .then(() => res.json({status: true, user: req.body}))
+            .then(() => res.send({status: true, user: req.body}))
             .then(() => console.log("Added New User"))
         .catch(err => console.log(err))
     }
