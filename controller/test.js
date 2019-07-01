@@ -2,16 +2,16 @@ const User = require("../models/user")
 
 
 exports.checkIfUserExist = (req, res) => {
-        res.send(req.body.user)
-        // User.findOne({phone_number: req.body.user, password: req.body.pass})
-        //     .then(data => {
-        //         if (data) {
-        //             res.send({status: true, user: data})
-        //         } else {
-        //             res.send({status: false, message: "User was not found. Please check the phone number or the password."})
-        //         }
-        //     })
-        //     .catch(err => res.send({status: '400', message: "Error"}))
+        const user = `0${req.body.user}`
+        User.findOne({phone_number: user, password: req.body.pass})
+            .then(data => {
+                if (data) {
+                    res.send({status: true, user: data})
+                } else {
+                    res.send({status: false, message: "User was not found. Please check the phone number or the password."})
+                }
+            })
+            .catch(err => res.send({status: '400', message: "Error"}))
     }
 
     exports.addNewTask = (req, res) => {
