@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     });        
 
 app.get('/', (req, res) => res.send("Home Route"))
-app.get('/signin', (req, res) => res.send("In Sign in Get"))
+app.post('/signin', (req, res) => res.send("In Sign in Get"))
 // handler.checkIfUserExist
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
