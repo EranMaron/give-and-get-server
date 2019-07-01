@@ -1,6 +1,6 @@
 const   express = require('express'),
         app = express(),
-        bodyParser = require('body-parser'),
+        // bodyParser = require('body-parser'),
         port = process.env.PORT || 3200
  
 const handler = require('./controller/test') 
