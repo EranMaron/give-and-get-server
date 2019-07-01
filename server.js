@@ -1,6 +1,5 @@
 const   express = require('express'),
         app = express(),
-        // bodyParser = require('body-parser'),
         port = process.env.PORT || 3200
  
 const handler = require('./controller/test') 
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send("Home Route"))
+app.get('/', (req, res) => res.send(port))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)

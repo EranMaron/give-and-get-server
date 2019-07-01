@@ -1,9 +1,3 @@
-// module.exports = {
-//     DB_USER: process.env.DB_USER,
-//     DB_PASS: process.env.DB_PASS,
-//     MLAB_URL: process.env.MLAB_URL,
-// };
-
 module.exports = {
     DB_USER: `db_usr`,
     DB_PASS: `db_pass1`,
