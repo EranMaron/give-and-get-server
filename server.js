@@ -20,10 +20,10 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send("Go"))
-app.post('signin', handler.checkIfUserExist)
-app.post('addTask', handler.addNewTask)
-app.post('signup', handler.addNewuser)
+// app.get('/', (req, res) => res.send("Go"))
+app.post('/', handler.checkIfUserExist)
+app.post('/addTask', handler.addNewTask)
+app.post('/signup', handler.addNewuser)
 app.all('*', (req, res) => res.send("All Routes"))
                
 app.listen(port)
