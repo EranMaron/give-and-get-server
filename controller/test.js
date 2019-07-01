@@ -1,8 +1,8 @@
 const User = require("../models/user")
 
 
-    exports.checkIfUserExist = (req, res) => {
-        User.findOne({phone_number: req.body.user, password: req.body.pass})
+    exports.checkIfUserExist = async (req, res) => {
+        await User.findOne({phone_number: req.body.user, password: req.body.pass})
             .then(data => {
                 if (data) {
                     res.send(data)
