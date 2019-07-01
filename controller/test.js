@@ -1,7 +1,7 @@
 const User = require("../models/user")
 
 
-    exports.checkIfUserExist = (req, res) => {
+exports.checkIfUserExist = (req, res) => {
         User.findOne({phone_number: req.body.user, password: req.body.pass})
         .then(data => {
                 if (data !== null) {

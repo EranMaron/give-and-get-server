@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     });        
 
 app.get('/', (req, res) => res.send('Root Route'))
-app.post('/signin', (req, res) => res.send('hi Amit'))
+app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
 app.all('*', (req, res) => res.send("All Routes"))
