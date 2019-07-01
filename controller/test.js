@@ -2,13 +2,13 @@ const User = require("../models/user")
 
 
 exports.checkIfUserExist = (req, res) => {
-        User.findOne({phone_number: req.body.user, password: req.body.pass})
-        .then(data => { res.send(data)
-                // if (data) {
-                //     res.send({status: '200', user: data})
-                // } else {
-                //     res.send({status: '400', message: "User was not found. Please check the phone number or the password."})
-                // }
+        User.find({phone_number: req.body.user, password: req.body.pass})
+        .then(data => {
+                if (data) {
+                    res.send({status: '200', user: data})
+                } else {
+                    res.send({status: '400', message: "User was not found. Please check the phone number or the password."})
+                }
             })
             .catch(err => res.send({status: '400', message: "Error"}))
     }
