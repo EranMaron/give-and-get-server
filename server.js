@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send(port))
+app.get('/', (req, res) => res.send(process.env.DB_USER))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
