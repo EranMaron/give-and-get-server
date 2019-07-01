@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send(process.env.MLAB_URL))
+app.get('/', (req, res) => console.log('Root Route'))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
