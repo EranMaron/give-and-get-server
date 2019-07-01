@@ -3,7 +3,7 @@ const User = require("../models/user")
 
 exports.checkIfUserExist = (req, res) => {
     const user = `0${req.body.user}`
-    console.log(`0 ${req.body.user}`)
+    res.send(`0 ${req.body.user}`)
     // User.findOne({phone_number: user, password: req.body.pass})
     //     .then(data => {
     //         if (data) {
