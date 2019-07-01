@@ -1,2 +1,2 @@
-require("./server");
 require("./dbConnection");
+require("./server");
