@@ -2,8 +2,7 @@ const   express = require('express'),
         app = express(),
         port = process.env.PORT || 3200
  
-const handler = require('./controller/test')
-const consts = require("./consts");
+const handler = require('./controller/test') 
         
 app.set("port", port);
 
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send(consts.MLAB_URL))
+app.get('/', (req, res) => res.send(process.env.DB_USER))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
