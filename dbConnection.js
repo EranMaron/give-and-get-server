@@ -13,5 +13,5 @@ const options = {
 };
 
 mongoose.connect(url, options)
-  .then(() => console.log("Connected To DB"))
-  .catch(err => console.log(`connection error: ${err}`));
+  .then(() => resizeBy.send("Connected To DB"))
+  .catch(err => resizeBy.send(`connection error: ${err}`));
