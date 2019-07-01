@@ -19,9 +19,10 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => res.send("Go"))
+// app.get('/', (req, res) => res.send("Go"))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
+app.post('/signup', handler.addNewuser)
                
 app.listen(port)
 console.log(`Server Running On Port ${port}`)

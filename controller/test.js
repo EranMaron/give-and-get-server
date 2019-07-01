@@ -7,7 +7,7 @@ module.exports = {
                 if (data) {
                     res.send({status: true, user: data})
                 } else {
-                    res.send({status: false, message: "User was not found. Please check the phone number again."})
+                    res.send({status: false, message: "User was not found. Please check the phone number or the password."})
                 }
             })
             .catch(err => res.send({status: '400', message: "Error"}))
@@ -19,6 +19,21 @@ module.exports = {
             .then(() => User.findOne({phone_number: req.body.userSendPhoneNumber}))
             .then(data => data.updateOne({$push: {given_tasks: req.body}}))
             .then(() => res.json({status: true, message: "Task Was Added Successfully"}))
-            .catch(err => res.json({status: '400', message: "User was not found. Please check the phone number again."}))
+            .catch(err => res.json({status: '400', message: "User was not found. Please check the phone number or the password."}))
+    },
+    
+    addNewuser(req, res) {
+        console.log(req.body)
+        User.create({
+            phone_number: req.body.user,
+            password: req.body.pass,
+            name: req.body.name,
+            given_tasks: req.body.given_tasks,
+            gotten_task: req.body.gotten_task,
+            contact_list: req.body.contact_list
+        })
+            .then(() => res.json({status: true, user: req.body}))
+            .then(() => console.log("Added New User"))
+        .catch(err => console.log(err))
     }
 }
