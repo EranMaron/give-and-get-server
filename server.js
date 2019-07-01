@@ -7,8 +7,9 @@ const handler = require('./controller/test')
         
 app.set("port", port);
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header(
@@ -20,9 +21,9 @@ app.use((req, res, next) => {
     });        
 
 app.get('/', (req, res) => res.send("Go"))
-app.post('/signin', handler.checkIfUserExist)
-app.post('/addTask', handler.addNewTask)
-app.post('/signup', handler.addNewuser)
+app.post('signin', handler.checkIfUserExist)
+app.post('addTask', handler.addNewTask)
+app.post('signup', handler.addNewuser)
 app.all('*', (req, res) => res.send("All Routes"))
                
 app.listen(port)
