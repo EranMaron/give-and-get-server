@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const user = new mongoose.Schema(
   {
-      phone_number: String,
+      phone_number: Number,
       password: String,
       name: String,
       given_tasks: [],
