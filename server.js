@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     next();
     });        
 
-app.get('/', (req, res) => console.log(consts.DB_USER))
+app.get('/', (req, res) => res.send(consts.MLAB_URL))
 app.post('/signin', handler.checkIfUserExist)
 app.post('/addTask', handler.addNewTask)
 app.post('/signup', handler.addNewuser)
